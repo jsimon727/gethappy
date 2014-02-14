@@ -1,0 +1,28 @@
+<body>
+
+<div class="user_panel">
+  <p><%= link_to "Join us!", new_user_path %></p>
+
+  <% unless @message.nil? %>
+  <div id="errors">
+    <h3>Errors!</h3>
+    <ul>
+      <li><em><%= @message %></em></li>
+    </ul>
+  </div>
+<% end %>
+
+
+  <%= form_tag "/session", :class => "form" do %>
+  <%= label_tag :email %>
+  <%= email_field_tag :email %></br>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %></br>
+  
+  <%= submit_tag "Log in!" %>
+  <% end %>
+
+ 
+</div>
+
+</body>

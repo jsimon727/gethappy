@@ -1,0 +1,16 @@
+<h1>Hello <%=@user.firstname%></h1>
+
+<ul class= "favorite_locations">
+  Favorite Locations:
+
+
+<%= @location.each do |location| %>
+  <li><%= link_to "#{location.name}", "/users/#{params[:id]}/locations/#{location.id}" %>
+  </li>
+  <% end %>
+</ul>
+
+  <h3><%= link_to "Add new favorite location",new_user_location_path(@user) %><h3>
+
+
+
