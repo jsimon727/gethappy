@@ -1,1 +1,0 @@
-bars_controller.rb
