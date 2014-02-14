@@ -19,7 +19,8 @@ class UsersController < ApplicationController
   end
 
   def show
-  @location = Location.all
+    @location = Location.all
+    # @custom_location = get_bar_name(params[:custom_location])
   end
 
   def edit
@@ -46,9 +47,17 @@ class UsersController < ApplicationController
     return @user = User.find(params[:id])
   end 
 
+private 
+
   def user_params
-    params.require(:user).permit(:email, :firstname, :lastname, :dob, :facebook_link, :password, :password_confirmation)
+    params.require(:user).permit(:email, :firstname, :lastname, :dob, :facebook_link, :password, :password_confirmation, :latitude, :longitude)
   end
 
+# def get_bar_name(location)
+#   # location = @User.locations.address
+#   from_yelp = HTTParty.get("http://api.yelp.com/business_review_search?term=happy+hour&location=#{location}&ywsid=pciSmjmZPLGRzQTqu9mh8g")
+#   bar_name = from_yelp["businesses"]
+#   # select_bar_names = bar_name.map{ |bar| bar["name"] }
+# end
 
 end

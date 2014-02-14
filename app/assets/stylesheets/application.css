@@ -11,7 +11,7 @@
  *= require_self
  *= require_tree .
  */
-
+/*
 body {
     font-size: 2.5em;
     background: url('/assets/background.gif');
@@ -38,10 +38,32 @@ header{
 
 .user_panel a:hover{
   color: #B0EC61;
+}*/
+
+.menu li {
+  list-style-type: none;
+  float: left;
+  padding-right: 5px;
+  padding-left: 5px;
+  border-right: 1px solid black;
 }
 
+.menu{
+  position: fixed;
+  top: 10px;
+  right: 200px;
+}
 
-.user_panel{
+.menu a{
+  text-decoration: none;
+  color: black;
+}
+
+.menu a:hover{
+  color: #B0EC61;
+}
+
+/*.user_panel{
     font: Helvetica;
     padding: 20px;
     width: 400px;
@@ -55,7 +77,6 @@ header{
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;
-    margin-bottom: 100px;
 }
 
 .form {
@@ -66,3 +87,4 @@ header{
   border-radius: 20px;
   width: 200px;
 }
+*/

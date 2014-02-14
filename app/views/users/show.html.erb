@@ -1,4 +1,4 @@
-<h1>Hello <%=@user.firstname%></h1>
+<h1>Hello, <%=@user.firstname%>!</h1>
 
 <ul class= "favorite_locations">
   Favorite Locations:
@@ -11,6 +11,8 @@
 </ul>
 
   <h3><%= link_to "Add new favorite location",new_user_location_path(@user) %><h3>
+    <h3><%= link_to "Find Bars Near Me", "/users/#{params[:id]}/locations" %><h3>
+
 
 
 

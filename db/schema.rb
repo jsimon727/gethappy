@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140213232034) do
+ActiveRecord::Schema.define(version: 20140214183623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 20140213232034) do
     t.date   "dob"
     t.text   "facebook_link"
     t.string "password_digest"
+    t.float  "latitude"
+    t.float  "longitude"
   end
 
 end
