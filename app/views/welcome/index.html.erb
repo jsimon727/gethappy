@@ -1,7 +1,31 @@
-<body>
+<body class="welcomepage">
+
+<img src="<%=asset_path( 'logo.png' )%>">
+
 
 <div class="user_panel">
-  <p><%= link_to("Join us!", new_user_path) unless session[:user_id] %></p>
-</div>
+  <p> GetHappy finds happy hour locations closest to you! </p>
+    <h2>
+      <%= link_to("Join us!", new_user_path) unless session[:user_id] %>
+    </h2>
 
+  <% unless @message.nil? %>
+    <div id="errors">
+      <h3>Errors!</h3>
+      <ul>
+        <li><em><%= @message %></em></li>
+      </ul>
+    </div>
+  <% end %>
+
+<h5><strong>Come on get happy...<strong><h5>
+    <%= form_tag "/session" do %>
+    <%= label_tag :email %>:
+    <%= email_field_tag :email %></br>
+    <%= label_tag :password %>:
+    <%= password_field_tag :password %></br>
+    
+    <%= submit_tag "Log in!" %>
+  <% end %>
+</div>
 </body>

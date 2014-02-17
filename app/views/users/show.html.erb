@@ -1,17 +1,39 @@
-<h1>Hello, <%=@user.firstname%>!</h1>
+<img src="<%=asset_path( 'logo1.png' )%>">
 
-<ul class= "favorite_locations">
-  Favorite Locations:
+<h2>Hello, <%=@user.firstname%>!</h2>
+
+<div class="addlocations">
+  
+  <h3><%= link_to image_tag("finder.png") + "Find Bars Near Me", "/users/#{params[:id]}/locations" %>
+  </h3>
+
+   <h3><%= link_to image_tag("plus.png") + "Add New Favorite Location",new_user_location_path(@user) %>
+    </h3>
+  </div>
+    
 
 
-<%= @location.each do |location| %>
-  <li><%= link_to "#{location.name}", "/users/#{params[:id]}/locations/#{location.id}" %>
-  </li>
-  <% end %>
-</ul>
+<div class = "editlocations">
+<ul>
+    <span>
+    <h1>Favorite Locations:</h2>
+    </span> 
+    <% @location.each do |location| %>
+        
+        <li><h2><img src="<%=asset_path( 'star.png' )%>">  <%= link_to "#{location.name}", "/users/#{params[:id]}/locations/#{location.id}" %></h2>
 
-  <h3><%= link_to "Add new favorite location",new_user_location_path(@user) %><h3>
-    <h3><%= link_to "Find Bars Near Me", "/users/#{params[:id]}/locations" %><h3>
+        <%= link_to "edit", "/users/#{params[:id]}/locations/#{location.id}/edit" %>
+
+        <%= form_tag user_location_path(@user, location), method: "delete" do %>
+
+          <%= submit_tag("delete") %>
+        <% end %>  
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+
 
 
 

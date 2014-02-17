@@ -1,8 +1,18 @@
+<body class= "locationsshow">
+
 <ul class = "bar_names">
-<%= @bars.each do |bar| %>
-<li><%= "Name: #{bar}" %></li>
-<% end %>
-<ul>
+  <% @bars.each do |bar| %>
+  <div class ="bar_list">
+    <a href = "<%="#{bar["url"]}" %>"  target="_blank"><li><strong>Name: </strong> <%= "#{bar["Name"]}" %></li> 
+    <li><strong>Location: </strong> <%="#{bar["Location"]}" %></li>
+    <img src= <%= "#{bar["Photo"]}" %> ></a>
+  </div>
+  <% end %>
+</ul>
+
+</body>
+
+
 
 
 
