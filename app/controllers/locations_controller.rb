@@ -22,9 +22,8 @@ end
 
 def index
   @user = User.find(params[:user_id])
-  @user.latitude = 40.783776
-  @user.longitude = -73.9
-  @bars_custom = custom_bar_name(@user.latitude, @user.longitude)
+  result = request.location
+  @bars_custom = custom_bar_name(result.latitude, result.longitude)
 
 end
 

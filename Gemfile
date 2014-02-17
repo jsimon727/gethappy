@@ -11,7 +11,7 @@ gem 'httparty'
 
 gem 'pry-rails', group: :development
 
-gem "geocoder"
+gem 'geocoder'
 
 gem 'bcrypt-ruby'
 #encrypt password
