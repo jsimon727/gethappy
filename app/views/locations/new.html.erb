@@ -1,13 +1,8 @@
-<body class = "form">
+<body class = "locationform">
 
 <%= form_for [@user, @location], :url => "/users/#{params[:user_id]}/locations" do |f| %>
-  <%= f.label :name %>
+  <%= f.label :name%>
   <%= f.text_field :name %>
-
-  <%= f.label :neighborhood %>
-  <%= f.text_field :neighborhood %>
-
-  <p> Or <p>
 
   <%= f.label :zip_code %>
   <%= f.text_field :zip_code %>

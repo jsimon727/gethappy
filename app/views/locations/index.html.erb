@@ -1,1 +1,14 @@
-  <%= @bars_custom %>
+  
+  <div class = "dealtag">
+    <%= link_to image_tag("tag.png") + "Find Deals Here!", "/users/#{params[:user_id]}/customdeals" %>
+  </div>
+
+<ul>
+  <% @bars_custom.each do |bar| %>
+  <div class ="item_list">
+    <a href = "<%="#{bar["url"]}" %>"  target="_blank"><li><strong>Name: </strong> <%= "#{bar["Name"]}" %></li> 
+    <li><strong>Location: </strong> <%="#{bar["Location"]}" %></li>
+    <img src= <%= "#{bar["Photo"]}" %> ></a>
+  </div>
+  <% end %>
+</ul>

@@ -58,7 +58,7 @@ input:nth-of-type(2) {
   margin-right: 30px;
 }
 
-input:nth-of-type(3) {
+.user_panel input:nth-of-type(3), .joinform input:nth-of-type(8), .locationform input:nth-of-type(3) {
 -moz-box-shadow:inset 0px 1px 0px 0px #dedbde;
   -webkit-box-shadow:inset 0px 1px 0px 0px #dedbde;
   box-shadow:inset 0px 1px 0px 0px #dedbde;
@@ -86,25 +86,24 @@ input:nth-of-type(3) {
   font-style:normal;
   height:35px;
   line-height:30px;
-  width:100px;
+  width:150px;
   text-decoration:none;
   text-align:center;
 }
 
-input, textarea, select{
-  margin-top: 10px;
-  color : black;
-  border-radius: 7px;
-  width: 200px;
-  height: 25px;
+
+.joinform form{
+  width: 500px;
+  margin-left: 40px;
 }
+
 
 header{
   padding-top: 20px;
   position: fixed;
   width: 100%;
   top: 0;
-  height: 115px;
+  height: 80px;
 }
 
 
@@ -132,22 +131,19 @@ header{
   right: 200px;
 }
 
-.bar_list a{ 
+.item_list a{ 
   text-align: center;
 }
 
-
-.bar_list img{
-  /*position: relative;
-  margin: 0 auto;*/
+.item_list img{
   width: 100%;
   border-radius: 10px;
 }
 
-.bar_list {
+.item_list {
   margin-top: 80px;
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   float: left;
   font-family: sans-serif;
   border-radius: 30px;
@@ -179,12 +175,19 @@ header{
 }
 
 .form {
-  padding: 30px;
+  margin-left: 10px;
   font-size: 1em;
-  line-height: 1.4;
   font-family: sans-serif;
   border-radius: 20px;
-  width: 200px;
+  width: 500px;
+}
+
+.form p{
+  font-size: 14pt;
+}
+
+.form a{
+  color: white;
 }
 
 body.edit{
@@ -192,34 +195,95 @@ body.edit{
   padding-left: 100px;
 }
 
-.addlocations{
-  padding-left: 30px;
+
+body.usersshow{
+  background: url("/assets/brickwall.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
+/*body.locationsshow{
+  background-color: #D1EEEE;
+}*/
 
 .addlocations img{
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
 }
 
-.editlocations{
-  margin: 30px 30px 0px 30px;
-  padding: 10px 0px 10px 10px;
-  background-color: #B0EC61;
-  border-radius: 20px;
+.addlocations{
+  padding-left: 30px;
+  font-size: 18pt;
 }
 
-.editlocations a:hover{
+
+.usersshow{
   color: white;
 }
 
+.usersshow a{
+  color: white;
+}
+
+
+.dealtag {
+  padding-top: 20px;
+  margin-left: 5%;
+}
+
+.editlocations li{
+  background-color: rgba(255, 255, 255, .5);
+  border-radius: 20px;
+  float: left;
+  width: 200px;
+  height: 150px;
+  padding: 10px;
+  font-size: 16pt;
+  text-align: center;
+}
+
+footer img{
+  width: 100%;
+}
+
+.editlocations a:hover{
+  color: #B0EC61;
+}
+
 .editlocations input {
-  width: 50px;
+  width: 50%;
 }
 
-.editlocations span{
-  background-color: grey;
+.editlocations a{
+  color: black;
+  padding-top: 100px;
 }
 
-body.form{
+body.form, body.locationform{
   margin-top: 100px;
+  background: url("/assets/brickwall.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  font-size: 1.5em;
+  padding: 5px;
 }
+
+body.locationform a {
+  color: white;
+}
+
+.dealsindex .itemlist li{
+  margin-top: 20px;
+  width: 400px
+}
+
+.editbuttons li{
+  float: left;
+  background-color: rgba(255, 255, 255, 0);
+  width: 50px;
+  height: 40px;
+  margin-top: 50px;
+}
+
+

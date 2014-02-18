@@ -1,3 +1,4 @@
+<div class = "joinform">
 <%= form_for @user do |f| %>
   <%= f.label :email %>
   <%= f.email_field :email %>
@@ -29,3 +30,4 @@
 
   <%= f.submit @user.id.nil? ? "Join!" : "Save Changes" %>
 <% end %>
+</div>

@@ -1,13 +1,8 @@
-<body class = "edit">
+<body class = "locationform">
 
 <%= form_for [@user, @location] do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %><br><br>
-
-  <%= f.label :neighborhood %>
-  <%= f.text_field :neighborhood %>
-
-  <p> Or <p>
 
   <%= f.label :zip_code %>
   <%= f.text_field :zip_code %><br>
