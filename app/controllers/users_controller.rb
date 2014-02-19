@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
  before_action :load_user, only: [:show, :edit, :update, :destroy]
+ before_action :authenticate, :authorize, only: [:edit, :update, :show]
 
   def new 
     @user = User.new
@@ -58,6 +59,18 @@ class UsersController < ApplicationController
   #   end
   # end
    
+
+  def authenticate
+    unless logged_in?
+      redirect_to login_path
+    end
+  end
+
+  def authorize
+    unless current_user == @user
+      redirect_to login_path
+    end
+  end
 
 private 
 
