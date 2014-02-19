@@ -1,4 +1,4 @@
-![alt text](https://farm4.staticflickr.com/3754/12637342993_c0e1540d33_o.png "Logo Title Text 1")
+![alt text](https://farm4.staticflickr.com/3754/12637342993_c0e1540d33_o.png "GetHappy Logo")
 
 ###GetHappy: Happy Hour Finder
 
