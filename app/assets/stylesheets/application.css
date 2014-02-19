@@ -243,16 +243,18 @@ body.edit{
   padding-left: 100px;
 }
 
-
-body.usersshow{
-  background: url("/assets/brickwall.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+body.usersshow input[type = "submit"] {
+  width: 65px;
 }
 
-/*body.locationsshow{
-  background-color: #D1EEEE;
-}*/
+.usersshow{
+  color: white;
+}
+
+.usersshow a{
+  color: white;
+}
+
 
 .addlocations img{
   width: 50px;
@@ -268,15 +270,6 @@ body.usersshow{
   width: 450px;
   box-shadow: 0px 4px 2px #242424;
 
-}
-
-
-.usersshow{
-  color: white;
-}
-
-.usersshow a{
-  color: white;
 }
 
 .editlocations li{

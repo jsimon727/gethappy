@@ -21,7 +21,7 @@
      
     <% @location.each do |location| %>
         
-        <li><strong><%= link_to "#{location.name}", "/users/#{params[:id]}/locations/#{location.id}" %></strong><br>
+        <li><img src= "<%= asset_path( 'star.png') %>"> <strong><%= link_to "#{location.name}", "/users/#{params[:id]}/locations/#{location.id}" %></strong><br>
 
           <%= button_to "edit", "/users/#{params[:id]}/locations/#{location.id}/edit", method: :get %>
 
