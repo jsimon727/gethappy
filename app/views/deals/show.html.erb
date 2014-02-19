@@ -1,9 +1,12 @@
 <body class= "dealsshow">
+   <div class = "dealtag">
+    <h2>Deals in the Area:</h2>
+  </div>
 
 <ul class = "item_names">
   <% @custom_deals_show.each do |coupon| %>
   <div class ="item_list">
-    <a href = "<%="#{coupon["url"]}" %>"  target="_blank"><li><strong>Deal: </strong> <%= "#{coupon["Name"]}" %></li> 
+    <a href = "<%="#{coupon["coupon_url"]}" %>" target="_blank"><li><strong>Deal: </strong> <%= "#{coupon["Name"]}" %></li> 
     <li><strong>Bar Name: </strong> <%="#{coupon["Location"]}" %></li>
      <li><strong>Address: </strong> <%="#{coupon["Address"]}" %></li>
      <li><strong>Info: </strong> <%="#{coupon["Disclaimer"]}" %></li>

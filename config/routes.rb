@@ -3,7 +3,7 @@ GetHappyApp::Application.routes.draw do
 resources :users do
   resources :deals, except: [:index, :edit, :new, :create, :update]
   resources :locations do
-  resources :deals, except: [:edit, :new, :show, :create, :update]
+    resources :deals, except: [:edit, :new, :show, :create, :update]
   end
 end
 

@@ -28,7 +28,7 @@ end
 
 def show
   @location = Location.find(params[:id])
-  @bars = get_bar_name(@location.zip_code || @location.neighborhood)
+  @bars = get_bar_name(@location.zip_code)
 end
 
 def create
@@ -40,20 +40,24 @@ end
 private
 
 def get_bar_name(search_location)
-  from_yelp = HTTParty.get("http://api.yelp.com/business_review_search?term=happy+hour&location=#{search_location}&ywsid=pciSmjmZPLGRzQTqu9mh8g")
-  bar_name = from_yelp["businesses"]
-  saved_bars = []
-  select_bar_names = bar_name.each{ |bar| saved_bars << {"Name" => "#{bar["name"]}", "Location" => "#{bar["address1"]}", "Photo" => "#{bar["photo_url"]}", "url" => "#{bar["url"]}" } }
-  saved_bars
+  Rails.cache.fetch("/users/#{params[:user_id]}/locations/#{params[:id]}/deals", :expires_in => 12.hours) do
+    from_yelp = HTTParty.get("http://api.yelp.com/business_review_search?term=happy+hour&location=#{search_location}&radius_filter=2500&limit=20&ywsid=pciSmjmZPLGRzQTqu9mh8g")
+    bar_name = from_yelp["businesses"]
+    saved_bars = []
+    select_bar_names = bar_name.each{ |bar| saved_bars << {"Name" => "#{bar["name"]}", "Location" => "#{bar["address1"]}", "Photo" => "#{bar["photo_url"]}", "url" => "#{bar["url"]}", "Review" => "#{bar["rating_img_url"]}", "Review_Count" => "#{bar["review_count"]}", "Deals" => "#{bar["deals"]}" } }
+    saved_bars
+  end
 end
 
 
 def custom_bar_name(latitude, longitude)
-  from_yelp = HTTParty.get("http://api.yelp.com/business_review_search?term=happy+hour&lat=#{latitude}&long=#{longitude}&radius=5&limit=15&ywsid=#{YELP_CLIENT_ID}")
-  bar_name = from_yelp["businesses"]
-  saved_bars = []
-  select_bar_names = bar_name.each{ |bar| saved_bars << {"Name" => "#{bar["name"]}", "Location" => "#{bar["address1"]}", "Photo" => "#{bar["photo_url"]}", "url" => "#{bar["url"]}" } }
-  saved_bars
+  Rails.cache.fetch("/users/#{params[:user_id]}/locations/#{params[:id]}/customdeals", :expires_in => 5.minutes) do
+    from_yelp = HTTParty.get("http://api.yelp.com/business_review_search?term=happy+hour&lat=#{latitude}&long=#{longitude}&radius_filter=2500&limit=20&ywsid=#{YELP_CLIENT_ID}")
+    bar_name = from_yelp["businesses"]
+    saved_bars = []
+    select_bar_names = bar_name.each{ |bar| saved_bars << {"Name" => "#{bar["name"]}", "Location" => "#{bar["address1"]}", "Photo" => "#{bar["photo_url"]}", "url" => "#{bar["url"]}", "Review" => "#{bar["rating_img_url"]}", "Review_Count" => "#{bar["review_count"]}", "Deals" => "#{bar["deals"]}"  } }
+    saved_bars
+  end
 end
 
   def load_user

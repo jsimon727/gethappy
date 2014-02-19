@@ -13,4 +13,8 @@
 
 <%= render "form" %>
 
+  <%= form_tag user_path(@user), method: "delete" do %>
+    <%= submit_tag("delete") %>
+  <% end %>
+
 <p><%= link_to "Back to Profile", user_path(@user) %></p>
