@@ -18,5 +18,11 @@ GetHappy is a happy hour location aggregator that allows users to search by eith
 * Yelp API
 * 8Coupons API
 
+#### [ERD](https://farm6.staticflickr.com/5495/12640207203_0a0c234657_o.png)
+
 
 ### [Find My User Stories](https://www.pivotaltracker.com/s/projects/1015676)
+
+### [My Heroku App](https://gethappy.herokuapp.com/)
+
+
