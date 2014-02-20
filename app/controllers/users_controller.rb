@@ -12,8 +12,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.latitude = location.latitude
     @user.longitude = location.longitude
-    # @user.ip_address
-    # geocode_ip_address
     if @user.save
       redirect_to user_path(@user)
     else
@@ -23,7 +21,6 @@ class UsersController < ApplicationController
 
   def show
     @location = @user.locations.all
-    # @custom_location = get_bar_name(params[:custom_location])
   end
 
   def edit
@@ -50,16 +47,6 @@ class UsersController < ApplicationController
     return @user = User.find(params[:id])
   end 
 
-  # def ip_address
-  #   if request.location == '127.0.0.1'
-  #     # Hard coded remote address
-  #     "123.45.67.89"
-  #   else
-  #     request.location
-  #   end
-  # end
-   
-
   def authenticate
     unless logged_in?
       redirect_to login_path
@@ -77,21 +64,5 @@ private
   def user_params
     params.require(:user).permit(:email, :firstname, :lastname, :dob, :facebook_link, :password, :password_confirmation, :latitude, :longitude, :ip_address)
   end
-
-#   def custom_bar_name(latitude, longitude)
-#     binding.pry
-#     from_yelp = HTTParty.get("http://api.yelp.com/business_review_search?term=happy+hour&lat=#{latitude}&long=#{longitude}&radius=10&limit=5&ywsid=#{YELP_CLIENT_ID}")
-#     bar_name = from_yelp["businesses"]
-#     saved_bars = []
-#     select_bar_names = bar_name.each{ |bar| saved_bars << {"Name" => "#{bar["name"]}", "Location" => "#{bar["address1"]}", "Photo" => "#{bar["photo_url"]}", "url" => "#{bar["url"]}" } }
-#     saved_bars
-# end
-
-# def get_bar_name(location)
-#   # location = @User.locations.address
-#   from_yelp = HTTParty.get("http://api.yelp.com/business_review_search?term=happy+hour&location=#{location}&ywsid=pciSmjmZPLGRzQTqu9mh8g")
-#   bar_name = from_yelp["businesses"]
-#   # select_bar_names = bar_name.map{ |bar| bar["name"] }
-# end
 
 end

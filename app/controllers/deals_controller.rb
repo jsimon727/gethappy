@@ -20,24 +20,19 @@ class DealsController < ApplicationController
   end
 
 
-
   private
 
   def get_deals(search_location)
     Rails.cache.fetch("/users/params#{:user_id}/locations/#{params[:location_id]}/customdeals", :expires_in => 12.hours) do
-      from_coupons = HTTParty.get("http://api.8coupons.com/v1/getdeals?key=#{COUPON_CLIENT_ID}&zip=#{search_location}&mileradius=10&limit=1000&orderby=radius&dealtypeid=7")
-      saved_coupons = []
-      select_coupons = from_coupons.select{ |coupon| saved_coupons << {"Name" => "#{coupon["dealTitle"]}", "Location" => "#{coupon["name"]}", "Address" => "#{coupon["address"]}", "Disclaimer" => "#{coupon["disclaimer"]}", "Photo" => "#{coupon["showImageStandardBig"]}", "coupon_url" => "#{coupon["storeURL"]}" || "#{coupon["url"]}" } }
-      saved_coupons
+      coupon_data = HTTParty.get("http://api.8coupons.com/v1/getdeals?key=#{COUPON_CLIENT_ID}&zip=#{search_location}&mileradius=10&limit=1000&orderby=radius&dealtypeid=7")
+      coupons = coupon_data.map{ |coupon| {"Name" => "#{coupon["dealTitle"]}", "Location" => "#{coupon["name"]}", "Address" => "#{coupon["address"]}", "Disclaimer" => "#{coupon["disclaimer"]}", "Photo" => "#{coupon["showImageStandardBig"]}", "coupon_url" => "#{coupon["storeURL"]}" || "#{coupon["url"]}" } }
     end
   end
 
   def custom_get_deals(latitude, longitude)
     Rails.cache.fetch("/users/params#{:user_id}/locations/#{params[:id]}", :expires_in => 5.minutes) do
-      from_coupons = HTTParty.get("http://api.8coupons.com/v1/getdeals?key=#{COUPON_CLIENT_ID}&lat=#{latitude}&lon=#{longitude}&mileradius=10&limit=1000&orderby=radius&dealtypeid=7")
-      saved_coupons = []
-      select_coupons = from_coupons.select{ |coupon| saved_coupons << {"Name" => "#{coupon["dealTitle"]}", "Location" => "#{coupon["name"]}", "Address" => "#{coupon["address"]}", "Disclaimer" => "#{coupon["disclaimer"]}", "Photo" => "#{coupon["showImageStandardBig"]}", "coupon_url" => "#{coupon["storeURL"]}" } }
-      saved_coupons
+      coupon_data = HTTParty.get("http://api.8coupons.com/v1/getdeals?key=#{COUPON_CLIENT_ID}&lat=#{latitude}&lon=#{longitude}&mileradius=10&limit=1000&orderby=radius&dealtypeid=7")
+      coupons = coupon_data.map{ |coupon| {"Name" => "#{coupon["dealTitle"]}", "Location" => "#{coupon["name"]}", "Address" => "#{coupon["address"]}", "Disclaimer" => "#{coupon["disclaimer"]}", "Photo" => "#{coupon["showImageStandardBig"]}", "coupon_url" => "#{coupon["storeURL"]}" } }
     end
   end
 

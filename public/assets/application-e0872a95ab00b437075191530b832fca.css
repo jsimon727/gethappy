@@ -19,6 +19,10 @@ body{
   color: black;
 }
 
+header a{
+  color: white;
+}
+
 body li{
   list-style-type: none;
 }
@@ -34,11 +38,6 @@ body a:hover {
 }
 
 body.welcomepage{
-/*     background: url('/assets/background.png');
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;*/
     font-size: 1.25em;
 }
 
@@ -53,7 +52,6 @@ input, textarea, select{
   width: 200px;
   height: 25px;
 }
-
 
 input:nth-of-type(2) {
   margin-right: 30px;
@@ -92,19 +90,40 @@ input:nth-of-type(2) {
   text-align:center;
 }
 
-
 .joinform form{
   width: 500px;
   margin-left: 40px;
 }
 
-
-header{
-  padding-top: 20px;
-  position: fixed;
-  width: 100%;
-  top: 0;
+.dealtag{
+  width: 105%;
   height: 80px;
+  background-color: rgb(66,66,66);
+  margin-left: -10px;
+  position: fixed;
+  top: 0px;
+}
+
+.dealtag h2{
+  color: white;
+  margin-left: 20px;
+}
+
+.dealtag a:nth-of-type(2) {
+  font-size: 16pt;
+  color: white;
+  position: fixed;
+  top: 25px;
+  left: 150px;
+}
+
+.dealtag a:hover {
+  color: #B0EC61;
+}
+
+.dealtag img{
+  padding-top: 10px;
+  padding-left: 30px;
 }
 
 
@@ -123,26 +142,46 @@ header{
   float: left;
   padding-right: 5px;
   padding-left: 5px;
-  border-right: 1px solid black;
+  border-right: 1px solid white;
+}
+
+.menu li a{
+  color: white;
+}
+
+
+.menu li a:hover{
+  color: #B0EC61;
 }
 
 .menu{
   position: fixed;
   top: 10px;
   right: 200px;
+  z-index:1;
 }
 
 .item_list a{ 
-  text-align: center;
+  text-align: left;
 }
 
-.item_list img{
-  width: 100%;
+.item_list img:nth-of-type(2){
+  width: 90%;
+  border-radius: 10px;
+}
+
+.item_list img:nth-of-type(1){
+  width: 60%;
+  border-radius: 10px;
+}
+
+.dealsindex img:nth-of-type(1), .dealsshow img:nth-of-type(1){
+  width: 80%;
   border-radius: 10px;
 }
 
 .item_list {
-  margin-top: 80px;
+  margin-top: 100px;
   width: 300px;
   height: 300px;
   float: left;
@@ -196,27 +235,9 @@ body.edit{
   padding-left: 100px;
 }
 
-
-body.usersshow{
-  background: url("/assets/brickwall.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+body.usersshow input[type = "submit"] {
+  width: 65px;
 }
-
-/*body.locationsshow{
-  background-color: #D1EEEE;
-}*/
-
-.addlocations img{
-  width: 50px;
-  height: 50px;
-}
-
-.addlocations{
-  padding-left: 30px;
-  font-size: 18pt;
-}
-
 
 .usersshow{
   color: white;
@@ -226,14 +247,23 @@ body.usersshow{
   color: white;
 }
 
+.addlocations img{
+  width: 50px;
+  height: 50px;
+}
 
-.dealtag {
-  padding-top: 20px;
-  margin-left: 5%;
+.addlocations h3{
+  padding: 10px;
+  font-size: 18pt;
+  background-color: rgb(66, 66, 66);
+  border-radius: 30px;
+  height: 80px;
+  width: 450px;
+  box-shadow: 0px 4px 2px #242424;
+
 }
 
 .editlocations li{
-  background-color: rgba(255, 255, 255, .5);
   border-radius: 20px;
   float: left;
   width: 200px;
@@ -241,6 +271,10 @@ body.usersshow{
   padding: 10px;
   font-size: 16pt;
   text-align: center;
+}
+
+.editlocations li a{
+  color: white;
 }
 
 footer img{
@@ -262,9 +296,6 @@ footer img{
 
 body.form, body.locationform{
   margin-top: 100px;
-  background: url("/assets/brickwall.png");
-  background-repeat: no-repeat;
-  background-size: cover;
   color: white;
   font-size: 1.5em;
   padding: 5px;
@@ -286,5 +317,7 @@ body.locationform a {
   height: 40px;
   margin-top: 50px;
 }
+
+
 
 
