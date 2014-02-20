@@ -49,13 +49,13 @@ class UsersController < ApplicationController
 
   def authenticate
     unless logged_in?
-      redirect_to login_path
+      redirect_to root_path
     end
   end
 
   def authorize
     unless current_user == @user
-      redirect_to login_path
+      redirect_to root_path
     end
   end
 
