@@ -1,5 +1,5 @@
 class BarsController < ApplicationController
-  before_action :load_user, only: [:index, :favorite, :unfavorite]
+  before_action :load_user, only: [:index, :favorite, :unfavorite, :destroy]
 
   def index
     @user.latitude = location.latitude
@@ -44,6 +44,12 @@ class BarsController < ApplicationController
   def unfavorite
     @user_id = current_user.id
     currentuser.bars.delete(@bar)
+  end
+
+  def destroy
+    @bar = Bar.find(params[:id])
+    @bar.destroy
+    redirect_to :back
   end
   
 

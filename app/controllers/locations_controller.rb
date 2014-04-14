@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   before_action(:load_user, { only: [:create, :new] })
-  before_action(:load_location, { only: [:edit, :show, :update, :destroy] })
+  before_action(:load_location, { only: [:edit, :update, :destroy] })
 
   def new
     @location = @user.locations.new
@@ -16,7 +16,7 @@ class LocationsController < ApplicationController
 
   def destroy
     @location.destroy
-    redirect_to user_path(@user)
+    redirect_to :back
   end
 
   def show

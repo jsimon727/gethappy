@@ -16,9 +16,7 @@
       <ul>
         <h1>Favorite Locations:</h1>
         <% @location.each do |location| %>
-          <li><img src= "<%= asset_path( 'star.png') %>"> <strong><%= link_to "#{location.name}", "/users/#{params[:id]}/locations/#{location.id}" %></strong><br>
-
-          <%= button_to "edit", "/users/#{params[:id]}/locations/#{location.id}/edit", method: :get %>
+          <li><img id="starimage" src= "<%= image_path('star2.png') %>" > <strong><%= link_to "#{location.name}", "/users/#{params[:id]}/locations/#{location.id}" %></strong><br>
 
           <%= form_tag user_location_path(@user, location), method: "delete" do %>
             <%= submit_tag("delete") %>
@@ -29,13 +27,14 @@
       <ul id="favorite-bars">
         <h1>Favorite Bars:</h1>
         <% @user.bars.each do |bar| %>
-        <li><%= link_to "#{bar.name}", user_bar_path(@user, bar.id)  %></li>
+        <li><%= link_to "#{bar.name}", user_bar_path(@user, bar.id)  %>
+          <%= form_tag user_bar_path(@user, bar), method: "delete" do %>
+            <%= submit_tag("delete") %>
+          <% end %></li>
         <% end %>
       </ul>
 
     </div>
-
-    
 
 
 
