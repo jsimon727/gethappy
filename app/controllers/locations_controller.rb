@@ -20,6 +20,7 @@ class LocationsController < ApplicationController
   end
 
   def show
+    @location = Location.find(params[:id])
     @bars_list = get_bar_info(@location.zip_code)
   end
 
