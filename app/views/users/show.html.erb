@@ -1,43 +1,46 @@
-<body class = "usersshow" style= "background: url('https://farm8.staticflickr.com/7448/12624091685_19c3195222_o.png'); background-size: cover; background-repeat: no-repeat;" >
-<img src="<%=asset_path( 'logo.png' )%>">
-
-<h2>Hello, <%=@user.firstname%>!</h2>
-<p> <%= link_to "Edit User Info", edit_user_path(@user) %> 
-
-<div class="addlocations">
-  
-  <h3><%= link_to image_tag("finder.png") + "     " + "Find Happy Hours Near Me", "/users/#{params[:id]}/locations" %>
-  </h3>
-
-   <h3><%= link_to image_tag("plus.png") + "     " + "Add New Favorite Location", new_user_location_path(@user) %>
-    </h3>
-
+<body class = "usersshow">
+  <div class="logo">
+    <img src="<%=image_path( 'logo.png' )%>">
   </div>
+  <div class="container">
+    <h2>Hello, <%=@user.firstname%>!</h2>
+    
+    <p><%= link_to "Edit User Info", edit_user_path(@user) %></p> 
 
-<div class = "editlocations">
-  <ul>
-  
-    <h1>Favorite Locations:</h2>
-     
-    <% @location.each do |location| %>
-        
-        <li><img src= "<%= asset_path( 'star.png') %>"> <strong><%= link_to "#{location.name}", "/users/#{params[:id]}/locations/#{location.id}" %></strong><br>
+    <div class="addlocations">
+      <h3><%= image_tag("finder.png")%> <%= link_to "Find Happy Hours Near Me", user_bars_path(@user) %></h3>
+      <h3><%= link_to image_tag("plus.png") + "     " + "Add New Favorite Location", new_user_location_path(@user) %> </h3>
+    </div>
+
+    <div class = "editlocations">
+      <ul>
+        <h1>Favorite Locations:</h1>
+        <% @location.each do |location| %>
+          <li><img src= "<%= asset_path( 'star.png') %>"> <strong><%= link_to "#{location.name}", "/users/#{params[:id]}/locations/#{location.id}" %></strong><br>
 
           <%= button_to "edit", "/users/#{params[:id]}/locations/#{location.id}/edit", method: :get %>
 
           <%= form_tag user_location_path(@user, location), method: "delete" do %>
             <%= submit_tag("delete") %>
-          <% end %>  </li>
-      
-    <% end %>
-  </ul>
-</div>
+          <% end %></li>
+        <% end %>
+      </ul>
 
-<footer>
-<img src= "<%= asset_path( 'bar.png') %>">
-</footer>
+      <ul id="favorite-bars">
+        <h1>Favorite Bars:</h1>
+        <% @user.bars.each do |bar| %>
+        <li><%= link_to "#{bar.name}", user_bar_path(@user, bar.id)  %></li>
+        <% end %>
+      </ul>
+
+    </div>
+
+    
 
 
+
+
+  </div>
 </body>
 
 

@@ -10,9 +10,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.latitude = location.latitude
-    @user.longitude = location.longitude
     if @user.save
+      session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       render :new
@@ -20,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @location = @user.locations.all
+    @location = @user.locations
   end
 
   def edit

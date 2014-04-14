@@ -1,20 +1,22 @@
-<h2>Update Your Info Here, <%= @user.firstname %></h2>
+<body class = "form">
+  <h2>Update Your Info Here, <%= @user.firstname %></h2>
 
-<% unless @update_worked %>
-  <div id="errors">
-    <h3>Errors!</h3>
-    <ul>
-      <% @user.errors.messages.each do |field,error| %>
-        <li><em><%= "#{field.capitalize} #{error.first}!" %></em></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<%= render "form" %>
-
-  <%= form_tag user_path(@user), method: "delete" do %>
-    <%= submit_tag("delete") %>
+  <% unless @update_worked %>
+    <div id="errors">
+      <h3>Errors!</h3>
+      <ul>
+        <% @user.errors.messages.each do |field,error| %>
+          <li><em><%= "#{field.capitalize} #{error.first}!" %></em></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
 
-<p><%= link_to "Back to Profile", user_path(@user) %></p>
+  <%= render "form" %>
+
+    <%= form_tag user_path(@user), method: "delete" do %>
+      <%= submit_tag("delete") %>
+    <% end %>
+
+  <%= link_to "Back to Profile", user_path(@user) %>
+</body>

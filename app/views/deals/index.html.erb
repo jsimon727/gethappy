@@ -3,16 +3,16 @@
     <h2>Deals in the Area:</h2>
   </div>
 
-<ul class = "item_names">
-  <% @deals_show.each do |coupon| %>
-  <div class ="item_list">
-    <a href = "<%="#{coupon["coupon_url"]}" %>"  target="_blank"><li><strong>Name: </strong> <%= "#{coupon["Name"]}" %></li> 
-    <li><strong>Bar Name: </strong> <%="#{coupon["Location"]}" %></li>
-     <li><strong>Address: </strong> <%="#{coupon["Address"]}" %></li>
-     <li><strong>Information: </strong> <%="#{coupon["Disclaimer"]}" %></li>
-    <img src= <%= "#{coupon["Photo"]}" %> ></a>
-  </div>
-  <% end %>
-</ul>
+  <ul class = "item_names">
+    <% @deals_show.each do |coupon| %>
+    <div class ="item_list">
+      <a href = "<%="#{coupon["coupon_url"]}" %>"  target="_blank"><li><strong>Name: </strong> <%= "#{coupon["Name"]}" %></li> 
+      <li><strong>Bar Name: </strong> <%="#{coupon["Location"]}" %></li>
+      <li><strong>Address: </strong> <%="#{coupon["Address"]}" %></li>
+      <li><strong>Information: </strong> <%="#{coupon["Disclaimer"]}" %></li>
+      <img src= <%= "#{coupon["Photo"]}" %> ></a>
+    </div>
+    <% end %>
+  </ul>
 
 </body>

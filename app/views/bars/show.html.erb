@@ -1,0 +1,20 @@
+<%= form_tag( user_bar_path, method: "get") do |f| %>
+  <%= label_tag("Favorite Bars:") %>
+  <%= select_tag(:favorite_bars, options_for_select(@favorite_bars)) %>
+  <%= submit_tag "Show", :name => nil%>
+<% end %>
+
+<div class = "favorite-bar-show">
+  <ul> 
+    <li><%= @bar.name %></li>
+    <li><%= @bar.address %></li>
+    <li><img src = <%= @bar.photo_url %>></li>
+    <li><img src = "<%= @bar.review %>"></li>
+  </ul>
+</div>
+
+
+<% @photos.each do |photo| %>
+<%= photo %>
+<% end %>
+

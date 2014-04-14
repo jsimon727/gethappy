@@ -1,13 +1,13 @@
-<body class = "locationform" style= "background: url('https://farm8.staticflickr.com/7448/12624091685_19c3195222_o.png'); background-size: cover; background-repeat: no-repeat;" >
+<body class = "locationform" >
 
-<%= form_for [@user, @location], :url => "/users/#{params[:user_id]}/locations" do |f| %>
-  <%= f.label :name%>
-  <%= f.text_field :name %>
+  <%= form_for [@user, @location], :url => "/users/#{params[:user_id]}/locations" do |f| %>
+    <%= f.label :name%>
+    <%= f.text_field :name %>
 
-  <%= f.label :zip_code %>
-  <%= f.text_field :zip_code %>
+    <%= f.label :zip_code %>
+    <%= f.text_field :zip_code %>
 
-  <%= f.submit %>
-<% end %>
+    <%= f.submit %>
+  <% end %>
 
 </body>

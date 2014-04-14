@@ -15,7 +15,6 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'pry-rails', group: :development
 
 gem 'geocoder'
 
@@ -46,6 +45,17 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :development, :test do
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'factory_girl_rails'
+  gem 'ffaker'
+  gem 'simplecov'
 end
 
 # Use unicorn as the app server

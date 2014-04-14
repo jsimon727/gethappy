@@ -1,22 +1,21 @@
-<body class = locationsshow>
+<body class = "locationsshow">
   <div class = "dealtag">
     <a href = "/users/<%= params[:user_id] %>/locations/<%= params[:id] %>/deals"> <img src = "<%= asset_path( 'tag.png') %>"></a>  
     <%= link_to "Find Deals Here!", "/users/#{params[:user_id]}/locations/#{params[:id]}/deals" %>
   </div>
 
-    <ul>
-
-      <% @bars.each do |bar| %>
-      <div class ="item_list">
-        <li><strong>Name: </strong> <%= "#{bar["Name"]}" %></li> 
-        <li><strong>Location: </strong> <%="#{bar["Location"]}" %></li>
-        <li><strong>Review Count: </strong> <%="#{bar["Review_Count"]}" %></li>
-        <img src= <%= "#{bar["Review"]}" %> >
-        <img src= <%= "#{bar["Photo"]}" %> ></a>
-      </div>
-      <% end %>
-    </ul>
-  </body>
+  <ul>
+    <% @bars_list.each do |bar| %>
+    <div class ="item_list">
+      <li><strong>Name: </strong> <%= "#{bar["Name"]}" %></li> 
+      <li><strong>Location: </strong> <%="#{bar["Location"]}" %></li>
+      <li><strong>Review Count: </strong> <%="#{bar["Review_Count"]}" %></li>
+      <img src= <%= "#{bar["Review"]}" %> >
+      <img src= <%= "#{bar["Photo"]}" %> >
+    </div>
+    <% end %>
+  </ul>
+</body>
 
 
 
