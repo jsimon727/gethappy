@@ -1,11 +1,9 @@
 class BarsController < ApplicationController
-  before_action :load_user, only: [:index, :favorite, :unfavorite, :destroy]
+  before_action :load_user, only: [:index, :favorite, :unfavorite, :destroy, :show, :create]
 
   def index
-    @user.latitude = location.latitude
-    @user.longitude = location.longitude
     @favorite_bar = @user.bars.find_by(params[:favorite_bar_id])
-    @bars_geocode = get_bar_info_geocode(@user.latitude, @user.longitude)
+    @bars_geocode = get_bar_info_geocode(location.latitude, location.longitude)
   end
 
   def new
@@ -13,7 +11,6 @@ class BarsController < ApplicationController
   end
 
   def show
-    load_user
     @bar = Bar.find_by(name: params[:favorite_bars])
     @favorite_bars = @user.bars.map(&:name)
     # @photos = get_bar_images(@bar.name, @user.latitude, @user.longitude)
@@ -22,7 +19,6 @@ class BarsController < ApplicationController
   end
 
   def create
-    load_user
     @bars = Bar.all
     @bar = Bar.new(bar_params)
     if @bars.map(&:address).include?(@bar.address)
@@ -35,11 +31,6 @@ class BarsController < ApplicationController
     end
     redirect_to user_bars_path(@user)
   end
-
-  # def favorite
-  #   load_user
-  #   @user.bars << @bar
-  # end
 
   def unfavorite
     @user_id = current_user.id
@@ -61,16 +52,6 @@ class BarsController < ApplicationController
       bars = happy_hour_data["businesses"].map{ |bar| {"Name" => "#{bar["name"]}", "Location" => "#{bar["address1"]}", "Photo" => "#{bar["photo_url"]}", "url" => "#{bar["url"]}", "Review" => "#{bar["rating_img_url"]}", "Review_Count" => "#{bar["review_count"]}", "Deals" => "#{bar["deals"]}"  } }
     end
   end
-
-  # def in_db
-  #   binding.pry
-  #   @bars = Bar.all
-  #   @bars.include?(@bar.address)
-  # end
-
-  # def current_bar
-
-  # end
 
   # def get_bar_images(name, latitude, longitude)
   #   venue_data = HTTParty.get("https://api.foursquare.com/v2/venues/search?ll=#{latitude},#{longitude}&client_id=#{FOURSQUARE_CLIENT_ID}&client_secret=#{FOURSQUARE_CLIENT_SECRET}&v=20140220")

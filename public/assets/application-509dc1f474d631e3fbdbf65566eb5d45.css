@@ -1,0 +1,506 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
+
+*, *:before, *:after {
+-moz-box-sizing: border-box; 
+-webkit-box-sizing: border-box; 
+box-sizing: border-box; 
+}
+
+body{
+  font-family: sans-serif;
+  font-size: 1em;
+  color: black;
+}
+
+header a{
+  color: white;
+}
+
+body li{
+  list-style-type: none;
+}
+
+body a {
+  text-decoration: none;
+  color: black;
+}
+
+body a:hover {
+  text-decoration: none;
+  color: #B0EC61;
+}
+
+body.welcomepage{
+  background: url('/assets/background.png') no-repeat center 25% fixed; 
+  background-size: cover; 
+  font-size: 1.25em;
+}
+
+body.welcomepage a{
+  color: white;
+}
+
+input, textarea, select{
+  margin-top: 10px;
+  color : black;
+  border-radius: 7px;
+  width: 200px;
+  height: 25px;
+}
+
+input:nth-of-type(2) {
+  margin-right: 30px;
+}
+
+.user_panel input:nth-of-type(3), .joinform input:nth-of-type(6), .locationform input:nth-of-type(3) {
+-moz-box-shadow:inset 0px 1px 0px 0px #dedbde;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #dedbde;
+  box-shadow:inset 0px 1px 0px 0px #dedbde;
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #b0ec61), color-stop(1, #95c452) );
+  background:-moz-linear-gradient( center top, #b0ec61 5%, #95c452 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b0ec61', endColorstr='#95c452');
+  background-color:#b0ec61;
+  -webkit-border-top-left-radius:6px;
+  -moz-border-radius-topleft:6px;
+  border-top-left-radius:6px;
+  -webkit-border-top-right-radius:6px;
+  -moz-border-radius-topright:6px;
+  border-top-right-radius:6px;
+  -webkit-border-bottom-right-radius:6px;
+  -moz-border-radius-bottomright:6px;
+  border-bottom-right-radius:6px;
+  -webkit-border-bottom-left-radius:6px;
+  -moz-border-radius-bottomleft:6px;
+  border-bottom-left-radius:6px;
+  text-indent:0;
+  border:1px solid #cccccc;
+  display:inline-block;
+  font-size:15px;
+  font-weight:bold;
+  font-style:normal;
+  height:35px;
+  line-height:30px;
+  width:150px;
+  text-decoration:none;
+  text-align:center;
+}
+
+.joinform form {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.dealtag{
+  width: 105%;
+  height: 80px;
+  background-color: rgb(66,66,66);
+  margin-left: -10px;
+  position: fixed;
+  top: 0px;
+}
+
+.dealtag h2{
+  color: white;
+  margin-left: 20px;
+}
+
+.dealtag a:nth-of-type(2) {
+  font-size: 16pt;
+  color: white;
+  position: fixed;
+  top: 25px;
+  left: 150px;
+}
+
+.dealtag a:hover {
+  color: #B0EC61;
+}
+
+.dealtag img{
+  padding-top: 10px;
+  padding-left: 30px;
+}
+
+.user_panel a{
+  text-decoration: none;
+  color: black;
+  font-family: sans-serif;
+}
+
+.user_panel a:hover{
+  color: #B0EC61;
+}
+
+.menu li {
+  list-style-type: none;
+  float: left;
+  padding-right: 5px;
+  padding-left: 5px;
+  border-right: 1px solid white;
+}
+
+.menu li a{
+  color: white;
+}
+
+.menu li a:hover{
+  color: #B0EC61;
+}
+
+.menu{
+  position: fixed;
+  top: 10px;
+  right: 100px;
+  z-index:1;
+}
+
+
+.item_list a{ 
+  text-align: left;
+}
+
+.item_list img:nth-of-type(2){
+  width: 90%;
+  border-radius: 10px;
+}
+
+.item_list img:nth-of-type(1){
+  width: 60%;
+  border-radius: 10px;
+}
+
+.dealsindex img:nth-of-type(1), .dealsshow img:nth-of-type(1){
+  width: 80%;
+  border-radius: 10px;
+}
+
+.item_list {
+  margin-top: 100px;
+  width: 300px;
+  height: 300px;
+  float: left;
+  font-family: sans-serif;
+  border-radius: 30px;
+  padding: 10px;
+  font-size: 1em;
+}
+
+.user_panel{
+    font: Helvetica;
+    position: fixed;
+    top: 200px;
+    left: 15%;
+    width: 390px;
+    float: left;
+    height: 460px;
+    text-align: center;
+    line-height: 160%;
+    font-size: 18pt;
+    background-color: rgba(255,255,255,.7);
+    border-radius: 8px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+}
+
+.user_panel p{
+  font-size: 16pt;
+  padding: 40px 18px 0 18px;
+  line-height: 140%;
+}
+
+.form {
+  margin-left: 10px;
+  font-size: 1em;
+  font-family: sans-serif;
+  border-radius: 20px;
+  width: 500px;
+}
+
+.form p{
+  font-size: 14pt;
+}
+
+.form a{
+  color: white;
+}
+
+body.edit{
+  padding-top: 200px;
+  padding-left: 100px;
+}
+
+body.usersshow input[type = "submit"] {
+  width: 65px;
+}
+
+body{
+  position: relative;
+}
+
+body.usersshow .logo{
+  height: 180px;
+  background-color: #424242;
+  position: absolute;
+  top: 0;
+  width: 110%;
+  margin-top: -200px;
+  margin-left: -10px;
+  z-index: -100;
+}
+
+body.usersshow .menu{
+  position: fixed;
+  right: 40px;
+}
+
+body.usersshow .logo img{
+  padding-top: 13px;
+  padding-left: 10px;
+}
+
+body.usersshow {
+  margin-top: 200px;
+  color: black;
+  background-color: background: -moz-linear-gradient(top, rgba(66,66,66,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(66,66,66,0.65)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(66,66,66,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(66,66,66,0.65) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(66,66,66,0.65) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+  background: linear-gradient(to bottom, rgba(66,66,66,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6424242', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+
+.usersshow a{
+  color: white;
+}
+
+.usersshow p a{
+  color: black;
+}
+
+.addlocations h3 img{
+  width: 50px;
+  height: 50px;
+  margin-top: 1%;
+}
+
+.addlocations h3{
+  padding: 10px;
+  margin-left: 30px;
+  font-size: 16pt;
+  background-color: rgb(66, 66, 66);
+  border-radius: 20px;
+  height: 80px;
+  width: 450px;
+  box-shadow: 0px 4px 2px #242424;
+  display: inline-block;
+}
+.addlocations h3 a{
+  vertical-align: top;
+  line-height: 280%;
+}
+
+.container{
+  margin: 0 auto;
+  width: 85%
+}
+
+
+.editlocations li{
+  border-radius: 20px;
+  float: left;
+  width: 200px;
+  height: 150px;
+  padding: 10px;
+  font-size: 16pt;
+  text-align: center;
+}
+
+.editlocations li a{
+  color: black;
+}
+
+footer img{
+  width: 100%;
+}
+
+.editlocations a:hover{
+  color: #B0EC61;
+}
+
+.editlocations input {
+  width: 50%;
+}
+
+.editlocations a{
+  color: black;
+  padding-top: 100px;
+}
+
+.editlocations input[type='submit'], .item_list input[type='submit'], body.favoritebars input[type='submit']{
+  -moz-box-shadow:inset 0px 1px 0px 0px #c1ed9c;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #c1ed9c;
+  box-shadow:inset 0px 1px 0px 0px #c1ed9c;
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9dce2c), color-stop(1, #8cb82b) );
+  background:-moz-linear-gradient( center top, #9dce2c 5%, #8cb82b 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9dce2c', endColorstr='#8cb82b');
+  background-color:#9dce2c;
+  -webkit-border-top-left-radius:0px;
+  -moz-border-radius-topleft:0px;
+  border-top-left-radius:0px;
+  -webkit-border-top-right-radius:0px;
+  -moz-border-radius-topright:0px;
+  border-top-right-radius:0px;
+  -webkit-border-bottom-right-radius:0px;
+  -moz-border-radius-bottomright:0px;
+  border-bottom-right-radius:0px;
+  -webkit-border-bottom-left-radius:0px;
+  -moz-border-radius-bottomleft:0px;
+  border-bottom-left-radius:0px;
+  text-indent:0;
+  border:1px solid #83c41a;
+  display:inline-block;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:12px;
+  font-weight:bold;
+  font-style:normal;
+  height:25px;
+  line-height:25px;
+  width:75px;
+  text-decoration:none;
+  text-align:center;
+  text-shadow:1px 1px 0px #689324;
+}
+
+.editlocations input[type='submit']:hover, body.favoritebars input[type='submit']:hover {
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #8cb82b), color-stop(1, #9dce2c) );
+  background:-moz-linear-gradient( center top, #8cb82b 5%, #9dce2c 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8cb82b', endColorstr='#9dce2c');
+  background-color:#8cb82b;
+}
+
+.editlocations input[type='submit']:active, body.favoritebars input[type='submit']:active {
+  position:relative;
+  top:1px;
+}
+
+body.form, body.locationform{
+  margin-top: 100px;
+  display: block;
+  margin: 100 auto;
+  padding-left: 60px;
+  width: 80%;
+  color: white;
+  font-size: 1.4em;
+  line-height: 180%;
+  background-color: #424242;
+}
+
+.locationform{
+  background-color: gray;
+}
+
+body.locationform a {
+  color: white;
+}
+
+.dealsindex .itemlist li{
+  margin-top: 20px;
+  width: 400px
+}
+
+.editbuttons li{
+  float: left;
+  background-color: rgba(255, 255, 255, 0);
+  width: 50px;
+  height: 40px;
+  margin-top: 50px;
+}
+
+#favorite-bars{
+  float: left;
+  width: 80%;
+}
+
+
+#favorite-bars li{
+  list-style-type: none;
+  float: left;
+}
+
+#starimage{
+  width: 13%;
+}
+
+
+@media (min-width:320px) and (max-width : 568px) { 
+  .addlocations h3{
+    height: 60px;
+    width: 300px;
+    font-size: 12pt;
+  }
+
+  body.welcomepage{
+    background-position: right center;
+  }
+
+  .user_panel{
+    position: fixed;
+    top: 200px;
+    left: 2%;
+    width: 380px;
+  }
+
+  .addlocations h3 img{
+    width: 40px;
+    height: 40px;
+  }
+
+  body.usersshow header{
+    position: relative;
+  }
+
+  body.usersshow .menu{
+    top: -80px;
+    width: 100%;
+    position: absolute;
+  }
+
+  .menu{
+    right: 10%;
+    top: 20%;
+  }
+
+  .editlocations h1{
+    font-size: 16pt;
+  }
+}
+
+body.favoritebars{
+  margin-top: 80px;
+}
+
+body.favoritebars li a{
+  color: black;
+}
+
+
