@@ -11,7 +11,8 @@ class BarsController < ApplicationController
   end
 
   def show
-    @bar = Bar.find_by(name: params[:favorite_bars])
+    @bar = Bar.find(params[:id])
+    @favorite_bar = Bar.find_by(name: params[:favorite_bars])
     @favorite_bars = @user.bars.map(&:name)
     # @photos = get_bar_images(@bar.name, @user.latitude, @user.longitude)
     # @favorite_bar = @user.bars.find_by(name: params[:favorite_bars])

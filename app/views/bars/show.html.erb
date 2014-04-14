@@ -5,15 +5,17 @@
     <%= submit_tag "Show", :name => nil%>
   <% end %>
 
-  <div class = "favorite-bar-show">
-    <ul> 
-      <li><%= @bar.name %></li>
-      <li><%= @bar.address %></li>
-      <li><img src = <%= @bar.photo_url %>></li>
-      <li><img src = <%= @bar.review %>></li>
-    </ul>
-  </div>
+  <% if @favorite_bar %>
+    <div class = "favorite-bar-show">
+      <ul> 
+        <li><%= @favorite_bar.name %></li>
+        <li><%= @favorite_bar.address %></li>
+        <li><img src = <%= @favorite_bar.photo_url %>></li>
+        <li><img src = <%= @favorite_bar.review %>></li>
+      </ul>
+    </div>
+  <% end %>
 
   
-</div>
+</body>
 
